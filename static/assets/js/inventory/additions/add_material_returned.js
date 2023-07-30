@@ -15,7 +15,7 @@ function req(){
   };
   $(".productName").val("");
   $.ajax({
-      url : '/inventory/js_add_materials',
+      url : '/inventory/js_add_returned_materials',
       type : 'POST',
       data : data,
       success: function(response) {

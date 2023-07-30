@@ -15,7 +15,7 @@ function req(){
   };
   $(".productName").val("");
   $.ajax({
-      url : '/inventory/js_add_products',
+      url : '/inventory/js_add_returned_products',
       type : 'POST',
       data : data,
       success: function(response) {
