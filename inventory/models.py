@@ -96,6 +96,96 @@ class MaterialsCardex(models.Model):
         verbose_name = 'کاردکس'
         verbose_name_plural = 'کاردکس مواد اولیه'
 
+
+''' Broken && Returned Prodocts || Meterials '''
+class BrokenProducts(models.Model):
+    product_author = models.CharField(max_length=40, verbose_name='اپراتور ثبت',null=False, blank=False )
+    product_name = models.CharField(max_length=300, verbose_name='نام کالا',null=False, blank=False )
+    product_code = models.CharField(max_length=50, verbose_name='کد کالا',null=False, blank=False )
+    product_color = models.CharField(max_length=50, verbose_name='رنگ کالا',null=False, blank=False )
+    product_quantity = models.PositiveIntegerField(verbose_name='موجودی کالا', null=True)
+    product_location = models.CharField(max_length=50, verbose_name='انبار کالا',null=False, blank=False )
+    product_hall = models.CharField(max_length=20, verbose_name='سالن انبار کالا',null=False, blank=False )
+    product_unit = models.CharField(max_length=20, verbose_name='واحد',null=False, blank=False )
+    product_date = models.DateTimeField(auto_now_add=True, verbose_name='زمان دقیق ثبت', null=True, blank=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال', blank=False, null=False)
+    is_available = models.BooleanField(default=True, verbose_name='موجودی / عدم موجودی', blank=False, null=False)
+    row = models.PositiveIntegerField(default=0)
+
+    def jpub(self):
+        return jConvert(self.product_date)
+
+    class Meta:
+        verbose_name = 'خرابی کالا'
+        verbose_name_plural = 'خرابی کالاها'
+
+
+class BrokenMaterials(models.Model):
+    material_author = models.CharField(max_length=40, verbose_name='اپراتور ثبت',null=False, blank=False )
+    material_name = models.CharField(max_length=300, verbose_name='نام',null=False, blank=False )
+    material_code = models.CharField(max_length=50, verbose_name='کد',null=False, blank=False )
+    material_color = models.CharField(max_length=50, verbose_name='رنگ',null=False, blank=False )
+    material_quantity = models.PositiveIntegerField(verbose_name='موجودی', null=True)
+    material_location = models.CharField(max_length=50, verbose_name='انبار',null=False, blank=False )
+    material_hall = models.CharField(max_length=20, verbose_name='سالن انبار',null=False, blank=False )
+    material_unit = models.CharField(max_length=20, verbose_name='واحد',null=False, blank=False )
+    material_date = models.DateTimeField(auto_now_add=True, verbose_name='زمان دقیق ثبت', null=True, blank=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال', blank=False, null=False)
+    is_available = models.BooleanField(default=True, verbose_name='موجودی / عدم موجودی', blank=False, null=False)
+    row = models.PositiveIntegerField(default=0)
+    
+    def jpub(self):
+        return jConvert(self.material_date)
+
+    class Meta:
+        verbose_name = 'خرابی ماده اولیه'
+        verbose_name_plural = 'خرابی مواد اولیه'
+
+
+class ReturnedProducts(models.Model):
+    product_author = models.CharField(max_length=40, verbose_name='اپراتور ثبت',null=False, blank=False )
+    product_name = models.CharField(max_length=300, verbose_name='نام کالا',null=False, blank=False )
+    product_code = models.CharField(max_length=50, verbose_name='کد کالا',null=False, blank=False )
+    product_color = models.CharField(max_length=50, verbose_name='رنگ کالا',null=False, blank=False )
+    product_quantity = models.PositiveIntegerField(verbose_name='موجودی کالا', null=True)
+    product_location = models.CharField(max_length=50, verbose_name='انبار کالا',null=False, blank=False )
+    product_hall = models.CharField(max_length=20, verbose_name='سالن انبار کالا',null=False, blank=False )
+    product_unit = models.CharField(max_length=20, verbose_name='واحد',null=False, blank=False )
+    product_date = models.DateTimeField(auto_now_add=True, verbose_name='زمان دقیق ثبت', null=True, blank=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال', blank=False, null=False)
+    is_available = models.BooleanField(default=True, verbose_name='موجودی / عدم موجودی', blank=False, null=False)
+    row = models.PositiveIntegerField(default=0)
+
+    def jpub(self):
+        return jConvert(self.product_date)
+
+    class Meta:
+        verbose_name = 'کالای مرجوعی'
+        verbose_name_plural = 'کالاهای مرجوع شده'
+
+
+class ReturnedMaterials(models.Model):
+    material_author = models.CharField(max_length=40, verbose_name='اپراتور ثبت',null=False, blank=False )
+    material_name = models.CharField(max_length=300, verbose_name='نام',null=False, blank=False )
+    material_code = models.CharField(max_length=50, verbose_name='کد',null=False, blank=False )
+    material_color = models.CharField(max_length=50, verbose_name='رنگ',null=False, blank=False )
+    material_quantity = models.PositiveIntegerField(verbose_name='موجودی', null=True)
+    material_location = models.CharField(max_length=50, verbose_name='انبار',null=False, blank=False )
+    material_hall = models.CharField(max_length=20, verbose_name='سالن انبار',null=False, blank=False )
+    material_unit = models.CharField(max_length=20, verbose_name='واحد',null=False, blank=False )
+    material_date = models.DateTimeField(auto_now_add=True, verbose_name='زمان دقیق ثبت', null=True, blank=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال', blank=False, null=False)
+    is_available = models.BooleanField(default=True, verbose_name='موجودی / عدم موجودی', blank=False, null=False)
+    row = models.PositiveIntegerField(default=0)
+    
+    def jpub(self):
+        return jConvert(self.material_date)
+
+    class Meta:
+        verbose_name = 'ماده اولیه مرجوعی'
+        verbose_name_plural = 'مواد اولیه مرجوعی'
+
+
 # Function to update row numbers
 def update_row_numbers(sender, instance, **kwargs):
     if kwargs.get('created'):

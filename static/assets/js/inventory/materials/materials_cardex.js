@@ -8,10 +8,6 @@ $(".do1").click(function() {
   let number = $("input[placeholder='تعداد']").val();
   let description = $("input[placeholder='شرح اقدامات']").val();
   let operation = $("select:eq(0)").find(":selected").text();
-  console.log(materialLocation);
-  console.log(materialHall);
-  console.log(materialCode);
-  console.log(materialColor);
   let data = {
       'material_location' : materialLocation,
       'material_hall' : materialHall,
@@ -23,6 +19,7 @@ $(".do1").click(function() {
       'description' : description,
       'operation' : operation,
   };
+  $("input[placeholder='شماره حواله / فاکتور']").val("");
   $.ajax({
       url : '/inventory/js_update_materials',
       type : 'POST',

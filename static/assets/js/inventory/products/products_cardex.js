@@ -19,6 +19,7 @@ $(".do1").click(function() {
       'description' : description,
       'operation' : operation,
   };
+  $("input[placeholder='شماره حواله / فاکتور']").val();
   $.ajax({
       url : '/inventory/js_update_products',
       type : 'POST',

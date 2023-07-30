@@ -62,9 +62,9 @@ def materials(request):
     elif request.user.category == 3:
         materials = Materials.objects.all().order_by('-material_date')
     elif request.user.category == 2:
-        materials = Materials.objects.filter(material_location = 'انبار مغازه غدیر').order_by('-material_date')
+        materials = Materials.objects.filter(material_location = 'مغازه غدیر').order_by('-material_date')
     elif request.user.category == 1:
-        materials = Materials.objects.filter(material_location = 'انبار پلاک سه').order_by('-material_date')
+        materials = Materials.objects.filter(material_location = 'پلاک سه').order_by('-material_date')
     elif request.user.category == 0:
         materials = Materials.objects.filter(material_location = 'انبار اخلاقی').order_by('-material_date')
     return render(request, "inventory/materials/materials.html", {'materials' : materials})
@@ -80,9 +80,9 @@ def products(request):
     elif request.user.category == 3 :
         products = Products.objects.all().order_by('-product_date')
     elif request.user.category == 2:
-        products = Products.objects.filter(product_location = 'انبار مغازه غدیر').order_by('-product_date')
+        products = Products.objects.filter(product_location = 'مغازه غدیر').order_by('-product_date')
     elif request.user.category == 1:
-        products = Products.objects.filter(product_location = 'انبار پلاک سه').order_by('-product_date')
+        products = Products.objects.filter(product_location = 'پلاک سه').order_by('-product_date')
     elif request.user.category == 0:
         products = Products.objects.filter(product_location = 'انبار اخلاقی').order_by('-product_date')
     return render(request, "inventory/products/products.html", {'products' : products})

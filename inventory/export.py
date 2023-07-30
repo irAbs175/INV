@@ -12,9 +12,9 @@ def product_list_export_to_excel(request):
     elif request.user.category == 3:
         list = Products.objects.all().order_by("product_date")
     elif request.user.category == 2:
-        list = Products.objects.filter(product_location = 'انبار مغازه غدیر').order_by('product_date')
+        list = Products.objects.filter(product_location = 'مغازه غدیر').order_by('product_date')
     elif request.user.category == 1:
-        list = Products.objects.filter(product_location = 'انبار پلاک سه').order_by('product_date')
+        list = Products.objects.filter(product_location = 'پلاک سه').order_by('product_date')
     elif request.user.category == 0:
         list = Products.objects.filter(product_location = 'انبار اخلاقی').order_by('product_date')
     else:
@@ -37,9 +37,9 @@ def material_list_export_to_excel(request):
     elif request.user.category == 3:
         list = Materials.objects.all().order_by("material_date")
     elif request.user.category == 2:
-        list = Materials.objects.filter(material_location = 'انبار مغازه غدیر').order_by('material_date')
+        list = Materials.objects.filter(material_location = 'مغازه غدیر').order_by('material_date')
     elif request.user.category == 1:
-        list = Materials.objects.filter(material_location = 'انبار پلاک سه').order_by('material_date')
+        list = Materials.objects.filter(material_location = 'پلاک سه').order_by('material_date')
     elif request.user.category == 0:
         list = Materials.objects.filter(material_location = 'انبار اخلاقی').order_by('material_date')
     else:
@@ -61,9 +61,9 @@ def product_list_pdf(request):
     elif request.user.category == 3:
         list = Products.objects.all().order_by("product_date")
     elif request.user.category == 2:
-        list = Products.objects.filter(product_location = 'انبار مغازه غدیر').order_by('product_date')
+        list = Products.objects.filter(product_location = 'مغازه غدیر').order_by('product_date')
     elif request.user.category == 1:
-        list = Products.objects.filter(product_location = 'انبار پلاک سه').order_by('product_date')
+        list = Products.objects.filter(product_location = 'پلاک سه').order_by('product_date')
     elif request.user.category == 0:
         list = Products.objects.filter(product_location = 'انبار اخلاقی').order_by('product_date')
     else:
@@ -79,9 +79,9 @@ def material_list_pdf(request):
     elif request.user.category == 3:
         list = Materials.objects.all().order_by("material_date")
     elif request.user.category == 2:
-        list = Materials.objects.filter(material_location = 'انبار مغازه غدیر').order_by('material_date')
+        list = Materials.objects.filter(material_location = 'مغازه غدیر').order_by('material_date')
     elif request.user.category == 1:
-        list = Materials.objects.filter(material_location = 'انبار پلاک سه').order_by('material_date')
+        list = Materials.objects.filter(material_location = 'پلاک سه').order_by('material_date')
     elif request.user.category == 0:
         list = Materials.objects.filter(material_location = 'انبار اخلاقی').order_by('material_date')
     else:

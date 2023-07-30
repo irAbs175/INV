@@ -1,10 +1,10 @@
 function req(){
   let productName = $(".productName").val();
   let productCode = $(".productCode").val();
-  let productColor = $(".productColor").val();
-  let productLocation = $("select:eq(0)").find(":selected").text();
-  let productHall = $("select:eq(1)").find(":selected").text();
-  let productUnit = $("select:eq(2)").find(":selected").text();
+  let productColor = $("select:eq(0)").find(":selected").text();
+  let productLocation = $("select:eq(1)").find(":selected").text();
+  let productHall = $("select:eq(2)").find(":selected").text();
+  let productUnit = $("select:eq(3)").find(":selected").text();
   let data = {
     'material_name' : productName,
     'material_code' : productCode,
@@ -13,6 +13,7 @@ function req(){
     'material_hall' : productHall,
     'material_unit' : productUnit,
 };
+$(".productName").val("");
 $.ajax({
     url : '/inventory/js_add_materials',
     type : 'POST',
@@ -55,7 +56,7 @@ $(".do0").click(function() {
     case 3:
       req();
     case 2:
-      if(productLocation == 'انبار مغازه غدیر'){req();}else{
+      if(productLocation == 'مغازه غدیر'){req();}else{
         Swal.fire({
           icon: "error",
           title: "شما مجاز به افزودن کالا در این انبار نیستید",
@@ -65,7 +66,7 @@ $(".do0").click(function() {
         return;
       };
     case 1:
-      if(productLocation == 'انبار پلاک سه'){req();}else{
+      if(productLocation == 'پلاک سه'){req();}else{
         Swal.fire({
           icon: "error",
           title: "شما مجاز به افزودن کالا در این انبار نیستید",

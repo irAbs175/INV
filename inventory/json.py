@@ -17,7 +17,7 @@ def js_add_products(request):
         product_unit = request.POST.get('product_unit')
         if product_name:
             if product_code:
-                if product_color:
+                if product_color and product_color != "انتخاب رنگ":
                     if product_location and product_location != "انتخاب محل انبار":
                         if product_hall and product_hall != "انتخاب سالن انبار":
                             if product_unit and product_unit != "انتخاب واحد شمارش":
@@ -63,7 +63,7 @@ def js_add_materials(request):
         material_unit = request.POST.get('material_unit')
         if material_name:
             if material_code:
-                if material_color:
+                if material_color and material_color != "انتخاب رنگ":
                     if material_location and material_location != "انتخاب محل انبار":
                         if material_hall and material_hall != "انتخاب سالن انبار":
                             if material_unit and material_unit != "انتخاب واحد شمارش":

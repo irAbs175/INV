@@ -36,19 +36,19 @@ def search(request, search):
         else:
             products = Products.objects.filter(product_code__contains = search).order_by('-product_date')
     elif cat == 2:
-        if Products.objects.filter(product_location = 'انبار مغازه غدیر', product_code__contains = search).exists():
-            products = Products.objects.filter(product_location = 'انبار مغازه غدیر', product_code__contains = search).order_by('-product_date')
-        elif Materials.objects.filter(material_location = 'انبار مغازه غدیر', material_code__contains = search).exists():
-            products = Materials.objects.filter(material_location = 'انبار مغازه غدیر', material_code__contains = search).order_by('-material_date')
+        if Products.objects.filter(product_location = 'مغازه غدیر', product_code__contains = search).exists():
+            products = Products.objects.filter(product_location = 'مغازه غدیر', product_code__contains = search).order_by('-product_date')
+        elif Materials.objects.filter(material_location = 'مغازه غدیر', material_code__contains = search).exists():
+            products = Materials.objects.filter(material_location = 'مغازه غدیر', material_code__contains = search).order_by('-material_date')
         else:
-            products = Products.objects.filter(product_location = 'انبار مغازه غدیر', product_code__contains = search).order_by('-product_date')
+            products = Products.objects.filter(product_location = 'مغازه غدیر', product_code__contains = search).order_by('-product_date')
     elif cat == 1:
-        if Products.objects.filter(product_location = 'انبار پلاک سه', product_code__contains = search).exists():
-            products = Products.objects.filter(product_location = 'انبار پلاک سه', product_code__contains = search).order_by('-product_date')
-        elif Materials.objects.filter(material_location = 'انبار پلاک سه', material_code__contains = search).exists():
-            products = Materials.objects.filter(material_location = 'انبار پلاک سه', material_code__contains = search).order_by('-material_date')
+        if Products.objects.filter(product_location = 'پلاک سه', product_code__contains = search).exists():
+            products = Products.objects.filter(product_location = 'پلاک سه', product_code__contains = search).order_by('-product_date')
+        elif Materials.objects.filter(material_location = 'پلاک سه', material_code__contains = search).exists():
+            products = Materials.objects.filter(material_location = 'پلاک سه', material_code__contains = search).order_by('-material_date')
         else:
-            products = Products.objects.filter(product_location = 'انبار پلاک سه', product_code__contains = search).order_by('-product_date')
+            products = Products.objects.filter(product_location = 'پلاک سه', product_code__contains = search).order_by('-product_date')
     elif cat == 0:
         if Products.objects.filter(product_location = 'انبار اخلاقی', product_code__contains = search).exists():
             products = Products.objects.filter(product_location = 'انبار اخلاقی', product_code__contains = search).order_by('-product_date')
