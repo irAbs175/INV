@@ -11,27 +11,32 @@ from openpyxl import Workbook
 # ADD BROKEN-RETURNED PRODUCTS/MATERIALS PAGE VIEWS
 ''' The following function return view of broken products html view '''
 @login_required
+@csrf_exempt
 def add_broken_products_view(request):
     return render(request, "inventory/additions/products/broken_add.html")
 
 ''' The following function return view of broken materials html view '''
 @login_required
+@csrf_exempt
 def add_broken_materials_view(request):
     return render(request, "inventory/additions/materials/broken_add.html")
 
 ''' The following function return view of returned products html view '''
 @login_required
+@csrf_exempt
 def add_returned_products_view(request):
     return render(request, "inventory/additions/products/returned_add.html")
 
 ''' The following function return view of returned materials html view '''
 @login_required
+@csrf_exempt
 def add_returned_materials_view(request):
     return render(request, "inventory/additions/materials/returned_add.html")
 
 # LIST OF BROKEN-RETURNED PRODUCTS/MATERIALS
 ''' The following function return broken products archive '''
 @login_required
+@csrf_exempt
 def broken_products_list(request):
     if request.user.category == 4:
         products = BrokenProducts.objects.all().order_by('-product_date')
@@ -47,6 +52,7 @@ def broken_products_list(request):
 
 ''' The following function return broken materials archive '''
 @login_required
+@csrf_exempt
 def broken_materials_list(request):
     if request.user.category == 4:
         materials = BrokenMaterials.objects.all().order_by('-material_date')
@@ -63,6 +69,7 @@ def broken_materials_list(request):
 
 ''' The following function return returned products archive '''
 @login_required
+@csrf_exempt
 def returned_products_list(request):
     if request.user.category == 4:
         materials = ReturnedProducts.objects.all().order_by('-product_date')
@@ -78,6 +85,7 @@ def returned_products_list(request):
 
 ''' The following function return returned materials archive '''
 @login_required
+@csrf_exempt
 def returned_materials_list(request):
     if request.user.category == 4:
         materials = ReturnedMaterials.objects.all().order_by('-material_date')
@@ -94,6 +102,7 @@ def returned_materials_list(request):
 # REST SUBMIT NEW BROKEN-RETURNED PRODUCTS/MATERIALS
 ''' The following function submit new broken products '''
 @login_required
+@csrf_exempt
 def js_add_broken_products(request):
     if request.method == 'POST':
         product_name = request.POST.get('product_name')
@@ -140,6 +149,7 @@ def js_add_broken_products(request):
 
 ''' The following function submit new broken materials '''
 @login_required
+@csrf_exempt
 def js_add_broken_materials(request):
     if request.method == 'POST':
         material_name = request.POST.get('material_name')
@@ -186,6 +196,7 @@ def js_add_broken_materials(request):
 
 ''' The following function submit new returned products '''
 @login_required
+@csrf_exempt
 def js_add_returned_products(request):
     if request.method == 'POST':
         product_name = request.POST.get('product_name')
@@ -232,6 +243,7 @@ def js_add_returned_products(request):
     
 ''' The following function submit new returned materials '''
 @login_required
+@csrf_exempt
 def js_add_returned_materials(request):
     if request.method == 'POST':
         material_name = request.POST.get('material_name')
@@ -279,6 +291,7 @@ def js_add_returned_materials(request):
 # EXCEL EXPORT LIST OF BROKEN-RETURNED PRODUCTS/MATERIALS
 ''' The following function return excel export for broken products list '''
 @login_required
+@csrf_exempt
 def broken_products_list_excel_export(request):
     if request.user.category == 4:
         list = BrokenProducts.objects.all().order_by("product_date")
@@ -304,6 +317,7 @@ def broken_products_list_excel_export(request):
 
 ''' The following function return excel export for broken materials list '''
 @login_required
+@csrf_exempt
 def broken_materials_list_excel_export(request):
     if request.user.category == 4:
         list = BrokenMaterials.objects.all().order_by("material_date")
@@ -329,6 +343,7 @@ def broken_materials_list_excel_export(request):
 
 ''' The following function return excel export for returned products list '''
 @login_required
+@csrf_exempt
 def returned_products_list_excel_export(request):
     if request.user.category == 4:
         list = ReturnedProducts.objects.all().order_by("product_date")
@@ -354,6 +369,7 @@ def returned_products_list_excel_export(request):
 
 ''' The following function return excel export for returned materials list '''
 @login_required
+@csrf_exempt
 def returned_materials_list_excel_export(request):
     if request.user.category == 4:
         list = ReturnedMaterials.objects.all().order_by("material_date")
@@ -380,6 +396,7 @@ def returned_materials_list_excel_export(request):
 # PDF EXPORT LIST OF BROKEN-RETURNED PRODUCTS/MATERIALS
 ''' The following function return pdf export for broken products list '''
 @login_required
+@csrf_exempt
 def broken_products_list_pdf_export(request):
     if request.user.category == 4:
         list = BrokenProducts.objects.all().order_by("product_date")
@@ -398,6 +415,7 @@ def broken_products_list_pdf_export(request):
 
 ''' The following function return pdf export for broken materials list '''
 @login_required
+@csrf_exempt
 def broken_materials_list_pdf_export(request):
     if request.user.category == 4:
         list = BrokenMaterials.objects.all().order_by("material_date")
@@ -416,6 +434,7 @@ def broken_materials_list_pdf_export(request):
 
 ''' The following function return pdf export for returned products list '''
 @login_required
+@csrf_exempt
 def returned_products_list_pdf_export(request):
     if request.user.category == 4:
         list = ReturnedProducts.objects.all().order_by("product_date")
@@ -434,6 +453,7 @@ def returned_products_list_pdf_export(request):
 
 ''' The following function return pdf export for returned materials list '''
 @login_required
+@csrf_exempt
 def returned_materials_list_pdf_export(request):
     if request.user.category == 4:
         list = ReturnedMaterials.objects.all().order_by("material_date")
