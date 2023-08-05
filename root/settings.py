@@ -14,6 +14,7 @@ INSTALLED_APPS = [
     "dashboard",
     "account",
     "inventory",
+    "orders",
     "chat",
 ]
 

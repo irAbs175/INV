@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.conf import settings
 
 urlpatterns = [
+    path("orders", include('orders.urls'), name = "site_orders"),
     path("chat/", include('chat.urls'), name = "chat_lobby"),
     path("api-auth/", include('rest_framework.urls')),
     path("inventory/", include('inventory.urls')),
