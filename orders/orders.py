@@ -34,8 +34,7 @@ def orders_index(request):
                                     phone_number = phone_number,
                                     package_status = False,
                                     send_status = False,
-                                    send_method = send_method,
-                                    order_desc = order_desc,)
+                                    send_method = send_method,)
                                 # Success message
                                 new_orders = SiteOrders.objects.filter(send_status = False, package_status = False)
                                 packaged_orders = SiteOrders.objects.filter(package_status = True, send_status = False)
@@ -51,8 +50,7 @@ def orders_index(request):
                                     phone_number = phone_number,
                                     package_status = True,
                                     send_status = False,
-                                    send_method = send_method,
-                                    order_desc = order_desc,)
+                                    send_method = send_method,)
                                 # Success message
                                 new_orders = SiteOrders.objects.filter(send_status = False, package_status = False)
                                 packaged_orders = SiteOrders.objects.filter(package_status = True, send_status = False)

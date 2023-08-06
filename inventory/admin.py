@@ -1,4 +1,5 @@
-from .models import Products, Materials, ProductsCardex, MaterialsCardex
+from .models import (Products, Materials, ProductsCardex, MaterialsCardex,
+    BrokenProducts, BrokenMaterials, ReturnedProducts, ReturnedMaterials)
 from django.contrib import admin
 
 

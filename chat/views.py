@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 
-def lobby(request, room):
-    return render(request, "chat/public.html", {"room_name": ""})
+def pvmessage(request, room):
+    return render(request, "chat/public.html", {"room_name": "TST"})

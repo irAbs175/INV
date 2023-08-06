@@ -148,7 +148,7 @@ Swal.fire({
                         <input name="send_method" class="form-control" value="{{ item.send_method }}" readonly>
                     </div>
                     <div class="col-md-12">
-                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <span name="order_desc">{{ item.order_desc }}</span></div>
+                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <input type="text" name="order_desc" class="form-control" value="{{item.order_desc}}" readonly></div>
                     </div>
                     <div class="col-md-6">
                         <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="button">دانلود فاکتور</button></a>
@@ -214,7 +214,7 @@ Swal.fire({
                         <input name="send_method" class="form-control" value="{{ item.send_method }}" readonly>
                     </div>
                     <div class="col-md-12">
-                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <span name="order_desc">{{ item.order_desc }}</span></div>
+                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span><input type="text" name="order_desc" class="form-control" value="{{item.order_desc}}" readonly></div>
                     </div>
                     <div class="col-md-6">
                         <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="button">دانلود فاکتور</button></a>
@@ -303,6 +303,9 @@ Swal.fire({
                         </select>
                     </div>
                     {% endif %}
+                    <div class="col-md-12">
+                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <input type="text" name="order_desc" class="form-control" value="{{item.order_desc}}" readonly></div>
+                    </div>
                     <div class="col-md-6">
                         <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="button">دانلود فاکتور</button></a>
                     </div>
