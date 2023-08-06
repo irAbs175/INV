@@ -1,11 +1,13 @@
 from django.views.generic.base import RedirectView
 from django.urls import path, include
 from dashboard.views import search
+from orders.orders import download_factor
 from django.contrib import admin
 from django.conf import settings
 
 urlpatterns = [
     path("orders", include('orders.urls'), name = "site_orders"),
+    path("downloads/<code>", download_factor, name="download_factor"),
     path("chat/", include('chat.urls'), name = "chat_lobby"),
     path("api-auth/", include('rest_framework.urls')),
     path("inventory/", include('inventory.urls')),

@@ -38,7 +38,7 @@ STATIC_ROOT = "/var/www/public/inventory/static"
 STATIC_URL = '/static/'
 
 # Media root Dir configuration
-MEDIA_ROOT = "/var/www/public/inventory/media"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Media URL
 MEDIA_URL = 'media/'

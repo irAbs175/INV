@@ -1,4 +1,4 @@
-from .orders import orders_index
+from .orders import orders_index, download_factor
 from django.urls import path
 
 

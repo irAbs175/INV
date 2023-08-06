@@ -63,7 +63,6 @@ def import_excel(request):
     context = {'status':''}
     if request.method == 'POST':
         if request.POST.get('mode') == 'محصولات':
-            print(request.POST.get('mode'))
             excel_resource = PRODUCTS_IMPORT_EXCEL()
             dataset = Dataset()
             new_excel = request.FILES['myfile']
