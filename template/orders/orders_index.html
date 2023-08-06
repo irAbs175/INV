@@ -82,7 +82,7 @@ Swal.fire({
                         <input name="order_desc" class="form-control" value="{{ item.jpub }}" readonly>
                     </div>
                     <div class="col-md-12">
-                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <input name="order_desc" value="{{ item.order_desc }}" readonly></div>
+                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <span name="order_desc" readonly>{{ item.order_desc }}</span></div>
                     </div>
                         <button class="btn btn-primary w-100" type="submit">تکمیل بسته بندی</button>
                 </form>
