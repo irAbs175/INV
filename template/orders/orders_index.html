@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block TITLE %}
-<title>ارسالی ها</title>
+<title>سفارشات سایت</title>
 {% endblock %}
 {% block CSS %}
 <link rel="stylesheet" href="{% static 'assets/css/orders/orders.css' %}">
@@ -22,7 +22,7 @@ Swal.fire({
     <div class="formpro">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <button class="nav-link wttc" id="nav-4-tab" data-bs-toggle="tab" data-bs-target="#nav-home4"
-                type="button" role="tab" aria-controls="nav-3" aria-selected="false">بررسی های جدیدترین سفارشات</button>
+            type="button" role="tab" aria-controls="nav-3" aria-selected="false">بررسی سفارشات امروز</button>
             <button class="nav-link  wttc" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-home2"
                 type="button" role="tab" aria-controls="nav-2" aria-selected="false">بسته بندی شده ها</button>
             <button class="nav-link wttc" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-home3"
@@ -37,9 +37,9 @@ Swal.fire({
         <!-- برسی های امروز -->
         <div class="tab-pane fade" id="nav-home4" role="tabpanel" aria-labelledby="nav-4-tab">
 
-            <div class="listpro">
+            <div>
                 {% for item in new_orders %}
-                <form method="post" class="row g-3">
+                <form method="post" class="row g-3 listpro">
                     <input type="hidden" name="job" value="submit_new_orders">
                     <div class="col-md-4">
                         <input type="text" name="order_code" class="form-control" id="validationDefault01" value="{{ item.order_code }}" readonly>
@@ -81,11 +81,16 @@ Swal.fire({
                         <input name="order_desc" class="form-control" value="{{ item.jpub }}" readonly>
                     </div>
                     <div class="col-md-12">
-                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <span name="order_desc" readonly>{{ item.order_desc }}</span></div>
+                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <span name="order_desc">{{ item.order_desc }}</span></div>
                     </div>
-                        <button class="btn btn-primary w-100" type="submit">تکمیل بسته بندی</button>
+                        <div class="col-md-6">
+                            <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="button">دانلود فاکتور</button></a>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary w-100" type="submit">تکمیل بسته بندی</button>
+                            </div>
                 </form>
-                <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="submit">دانلود فاکتور</button></a>
+                
                 {% empty %}
                 <div class="bkbc wttc itemkala">
                     <span>سفارش فعالی برای برسی وجود ندارد</span>
@@ -98,9 +103,9 @@ Swal.fire({
         <!-- بسته بندی شده ها -->
         <div class="tab-pane fade" id="nav-home2" role="tabpanel" aria-labelledby="nav-2-tab">
 
-            <div class="listpro">
+            <div>
                 {% for item in packaged_orders %}
-                <form method="post" class="row g-3">
+                <form method="post" class="row g-3 listpro">
                     <input type="hidden" name="job" value="submit_packaged_orders">
                     <div class="col-md-4">
                         <input type="text" name="order_code" class="form-control" id="validationDefault01" value="{{ item.order_code }}" readonly>
@@ -143,11 +148,15 @@ Swal.fire({
                         <input name="send_method" class="form-control" value="{{ item.send_method }}" readonly>
                     </div>
                     <div class="col-md-12">
-                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <input name="order_desc" value="{{ item.order_desc }}" readonly></div>
+                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <span name="order_desc">{{ item.order_desc }}</span></div>
                     </div>
-                        <button class="btn btn-primary w-100" type="submit">ثبت ارسال سفارش</button>
-                </form>
-                <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="submit">دانلود فاکتور</button></a>
+                    <div class="col-md-6">
+                        <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="button">دانلود فاکتور</button></a>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary w-100" type="submit">تکمیل بسته بندی</button>
+                        </div>
+                    </form>
                 {% empty %}
                 <div class="bkbc wttc itemkala">
                     <span>سفارش بسته بندی شده ای برای ارسال وجود ندارد</span>
@@ -160,9 +169,9 @@ Swal.fire({
         <!-- ارسال شده ها -->
         <div class="tab-pane fade" id="nav-home3" role="tabpanel" aria-labelledby="nav-3-tab">
 
-            <div class="listpro">
+            <div>
                 {% for item in sended_orders %}
-                <form method="post" class="row g-3">
+                <form method="post" class="row g-3 listpro">
                     <input type="hidden" name="job" value="submit_sended_orders">
                     <div class="col-md-4">
                         <input type="text" name="order_code" class="form-control" id="validationDefault01" value="{{ item.order_code }}" readonly>
@@ -205,14 +214,18 @@ Swal.fire({
                         <input name="send_method" class="form-control" value="{{ item.send_method }}" readonly>
                     </div>
                     <div class="col-md-12">
-                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <input name="order_desc" value="{{ item.order_desc }}" readonly></div>
+                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <span name="order_desc">{{ item.order_desc }}</span></div>
                     </div>
-                        <button class="btn btn-primary w-100" type="submit">ویرایش وضعیت ارسال سفارش</button>
-                </form>
-                <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="submit">دانلود فاکتور</button></a>
+                    <div class="col-md-6">
+                        <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="button">دانلود فاکتور</button></a>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary w-100" type="submit">تکمیل بسته بندی</button>
+                        </div>
+                    </form>
                 {% empty %}
                 <div class="bkbc wttc itemkala">
-                    <span>سفارش بسته بندی شده ای برای ارسال وجود ندارد</span>
+                    <span>سفارش ارسال شده ای یافت نشد</span>
                 </div>
                 {% endfor %}
             </div>
@@ -223,8 +236,8 @@ Swal.fire({
         <div class="tab-pane fade show active " id="nav-home1" role="tabpanel" aria-labelledby="nav-1-tab"
         tabindex="0">
 
-            <div class="listpro">
-                <form method="post" class="row g-3">
+            <div>
+                <form method="post" class="row g-3 listpro">
                     <input type="hidden" name="job" value="submit_search">
                     <div class="col-md-4">
                         <input name="searched_text" type="text" class="form-control" id="validationDefault01" placeholder="شماره سفارش را وارد کنید">
@@ -236,7 +249,7 @@ Swal.fire({
                 <hr>
                 {% if search_result %}
                 {% for item in search_result %}
-                <form method="post" class="row g-3">
+                <form method="post" class="row g-3 listpro">
                     <input type="hidden" name="job" value="edit_search">
                     <div class="col-md-4">
                         <input type="text" name="order_code" class="form-control" id="validationDefault01" value="{{ item.order_code }}" readonly>
@@ -290,12 +303,13 @@ Swal.fire({
                         </select>
                     </div>
                     {% endif %}
-                    <div class="col-md-12">
-                        <div class="textseller"><span class="betc">متن ارسالی از طرف پرسنل دفتر:</span> <input name="order_desc" value="{{ item.order_desc }}" readonly></div>
+                    <div class="col-md-6">
+                        <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="button">دانلود فاکتور</button></a>
                     </div>
-                        <button class="btn btn-primary w-100" type="submit">ثبت ارسال سفارش</button>
-                </form>
-                <a href="/downloads/{{item.order_code}}"><button class="btn btn-danger w-100" type="submit">دانلود فاکتور</button></a>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary w-100" type="submit">اعمال تغییرات</button>
+                        </div>
+                    </form>
                 {% endfor %}
                 {% endif %}
             </div>
@@ -305,8 +319,8 @@ Swal.fire({
     <!-- پایان جستجوی ارسال شده ها -->
     <!-- دفتر مرکزی -->
     <div class="tab-pane fade" id="nav-home5" role="tabpanel" aria-labelledby="nav-5-tab">
-        <div class="listpro">
-        <form method="post" enctype="multipart/form-data" class="row g-3 needs-validation mt-3">
+        <div>
+        <form method="post" enctype="multipart/form-data" class="listpro row g-3 needs-validation mt-3">
             <input type="hidden" name="job" value="submit_order">
             <div class="col-md-4">
                 <input name="order_code" type="text" class="form-control" id="validationDefault01" placeholder="کدسفارش" required>
