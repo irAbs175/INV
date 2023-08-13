@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 
 
-CSRF_TRUSTED_ORIGINS = ["https://8000-irabs174-inventory-tkljmzbwabm.ws-eu102.gitpod.io", "http://8000-irabs174-inventory-tkljmzbwabm.ws-eu102.gitpod.io"]
+CSRF_TRUSTED_ORIGINS = ["https://8000-irabs175-inv-nvsblit99nt.ws-eu102.gitpod.io"]
 
 SECRET_KEY = 'django-insecure-awod(*&%)(*@#l;jlsahdlkhDCED20198427KLJHDJGa216534'
 
@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-irabs174-inventory-tkljmzbwabm.ws-eu102.gitpod.io']
+ALLOWED_HOSTS = ['8000-irabs175-inv-nvsblit99nt.ws-eu102.gitpod.io']
 
 DATABASES = {
     "default": {
@@ -25,6 +25,7 @@ STATICFILES_FINDERS = [
 
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+
 # STATIC FILES DIRS
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 

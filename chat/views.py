@@ -5,7 +5,7 @@ from account.models import user_accounts
 
 @login_required
 def pvmessage(request, room):
-    account = user_accounts.objects.filter(last_name = room)
+    account = user_accounts.objects.filter(phoneNumber = room)
     if account.exists():
         return render(request, "chat/private.html", {"room_name": room})
     else:

@@ -1,9 +1,9 @@
-const roomName = $("input[name='room-name']").val;
+const roomName = $('input[name=ROOM_NAME]').val();
 
 const chatSocket = new WebSocket(
     'wss://'
     + window.location.host
-    + '/wss/chat/'
+    + '/ws/chat/'
     + roomName
     + '/'
 );
